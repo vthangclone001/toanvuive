@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     FILE: index.html - Trang đăng nhập / đăng ký (KHÔNG CẦN SỬA)
+     Đây là trang đầu tiên người dùng mở. Xử lý bằng js/auth.js
+     ===================================================================== -->
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toán học – Đăng nhập</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="auth-box">
+    <h1>Toán học</h1>
+    <p class="muted">Đăng nhập hoặc tạo tài khoản để bắt đầu.</p>
+
+    <div class="tabs">
+      <button class="tab active" id="tab-dn" type="button">Đăng nhập</button>
+      <button class="tab" id="tab-dk" type="button">Đăng ký</button>
+    </div>
+
+    <!-- Form đăng nhập -->
+    <form id="form-dang-nhap" class="card">
+      <label class="field" for="dn-email">Email</label>
+      <input id="dn-email" type="email" autocomplete="email" required>
+      <label class="field" for="dn-matkhau">Mật khẩu</label>
+      <input id="dn-matkhau" type="password" autocomplete="current-password" required>
+      <button id="btn-dang-nhap" class="btn full" type="submit">Đăng nhập</button>
+    </form>
+
+    <!-- Form đăng ký (ẩn lúc đầu) -->
+    <form id="form-dang-ky" class="card hidden">
+      <label class="field" for="dk-hoten">Họ và tên</label>
+      <input id="dk-hoten" type="text" autocomplete="name" required>
+      <label class="field" for="dk-email">Email</label>
+      <input id="dk-email" type="email" autocomplete="email" required>
+      <label class="field" for="dk-matkhau">Mật khẩu (ít nhất 6 ký tự)</label>
+      <input id="dk-matkhau" type="password" autocomplete="new-password" minlength="6" required>
+      <label class="field" for="dk-vaitro">Bạn là</label>
+      <select id="dk-vaitro">
+        <option value="student">Học sinh</option>
+        <option value="teacher">Giáo viên</option>
+      </select>
+      <!-- Chỉ hiện khi chọn "Giáo viên" -->
+      <div id="khung-ma-gv" class="hidden">
+        <label class="field" for="dk-magv">Mã giáo viên</label>
+        <input id="dk-magv" type="text" autocomplete="off">
+      </div>
+      <button id="btn-dang-ky" class="btn full" type="submit">Tạo tài khoản</button>
+    </form>
+  </div>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     FILE: student.html - Trang của HỌC SINH (KHÔNG CẦN SỬA)
+     Có 3 tab: Lớp của tôi | Bài tập | Kết quả. Xử lý bằng js/student.js
+     ===================================================================== -->
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toán học – Học sinh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- KaTeX: hiển thị công thức Toán -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div><span class="brand">Toán học</span> · <span class="muted">Học sinh: <span id="ten-nguoi-dung"></span></span></div>
+    <button id="btn-logout" class="btn small ghost" type="button">Đăng xuất</button>
+  </div>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" data-tab="lop" type="button">Lớp của tôi</button>
+      <button class="tab" data-tab="baitap" type="button">Bài tập</button>
+      <button class="tab" data-tab="ketqua" type="button">Kết quả</button>
+    </div>
+
+    <!-- TAB 1: LỚP CỦA TÔI -->
+    <section id="panel-lop" class="panel">
+      <form id="form-vao-lop" class="card soft">
+        <h2>Tham gia lớp</h2>
+        <label class="field" for="ma-lop">Mã lớp (6 ký tự, do giáo viên cung cấp)</label>
+        <input id="ma-lop" type="text" maxlength="6" autocomplete="off" required>
+        <button class="btn full" type="submit">Tham gia</button>
+      </form>
+      <h2>Các lớp đã tham gia</h2>
+      <div id="ds-lop"></div>
+    </section>
+
+    <!-- TAB 2: BÀI TẬP (danh sách + khu làm bài) -->
+    <section id="panel-baitap" class="panel hidden">
+      <div id="ds-baitap"></div>
+      <div id="khu-lam-bai" class="hidden"></div>
+    </section>
+
+    <!-- TAB 3: KẾT QUẢ CỦA TÔI (BƯỚC 5) -->
+    <section id="panel-ketqua" class="panel hidden">
+      <div id="tong-ket"></div>
+      <div id="ds-ketqua"></div>
+    </section>
+  </div>
+
+  <script type="module" src="js/student.js"></script>
+</body>
+</html>

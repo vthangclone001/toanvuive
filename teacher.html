@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     FILE: teacher.html - Trang của GIÁO VIÊN (KHÔNG CẦN SỬA)
+     Có 3 tab: Lớp học | Ngân hàng câu hỏi | Bài tập. Xử lý bằng js/teacher.js
+     ===================================================================== -->
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toán học – Giáo viên</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- KaTeX: hiển thị công thức Toán -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div><span class="brand">Toán học</span> · <span class="muted">Giáo viên: <span id="ten-nguoi-dung"></span></span></div>
+    <button id="btn-logout" class="btn small ghost" type="button">Đăng xuất</button>
+  </div>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" data-tab="lop" type="button">Lớp học</button>
+      <button class="tab" data-tab="cauhoi" type="button">Ngân hàng câu hỏi</button>
+      <button class="tab" data-tab="baitap" type="button">Bài tập</button>
+    </div>
+
+    <!-- TAB 1: LỚP HỌC -->
+    <section id="panel-lop" class="panel">
+      <form id="form-tao-lop" class="card soft">
+        <h2>Tạo lớp mới</h2>
+        <label class="field" for="ten-lop">Tên lớp</label>
+        <input id="ten-lop" type="text" placeholder="Ví dụ: Toán 10A1" required>
+        <button class="btn full" type="submit">Tạo lớp</button>
+      </form>
+      <div id="ds-lop"></div>
+      <div id="chi-tiet-lop"></div>
+    </section>
+
+    <!-- TAB 2: NGÂN HÀNG CÂU HỎI -->
+    <section id="panel-cauhoi" class="panel hidden">
+      <form id="form-cauhoi" class="card soft">
+        <h2>Thêm câu hỏi trắc nghiệm</h2>
+        <p class="muted">Viết công thức Toán trong dấu $...$ , ví dụ: $x^2 + \frac{1}{2}$</p>
+        <label class="field" for="noidung">Nội dung câu hỏi</label>
+        <textarea id="noidung" required></textarea>
+        <div class="grid-2">
+          <div><label class="field" for="dapan-0">Đáp án A</label><input id="dapan-0" type="text" required></div>
+          <div><label class="field" for="dapan-1">Đáp án B</label><input id="dapan-1" type="text" required></div>
+          <div><label class="field" for="dapan-2">Đáp án C</label><input id="dapan-2" type="text" required></div>
+          <div><label class="field" for="dapan-3">Đáp án D</label><input id="dapan-3" type="text" required></div>
+        </div>
+        <label class="field" for="dapan-dung">Đáp án đúng</label>
+        <select id="dapan-dung">
+          <option value="0">A</option><option value="1">B</option>
+          <option value="2">C</option><option value="3">D</option>
+        </select>
+        <label class="field" for="loigiai">Lời giải (không bắt buộc)</label>
+        <textarea id="loigiai"></textarea>
+        <label class="field">Xem trước</label>
+        <div id="xem-truoc" class="preview"></div>
+        <button class="btn full" type="submit">Lưu câu hỏi</button>
+      </form>
+      <h2>Câu hỏi của bạn</h2>
+      <div id="ds-cauhoi"></div>
+    </section>
+
+    <!-- TAB 3: BÀI TẬP -->
+    <section id="panel-baitap" class="panel hidden">
+      <form id="form-baitap" class="card soft">
+        <h2>Giao bài mới</h2>
+        <label class="field" for="bt-lop">Lớp</label>
+        <select id="bt-lop"></select>
+        <label class="field" for="bt-tieude">Tên bài tập</label>
+        <input id="bt-tieude" type="text" placeholder="Ví dụ: Kiểm tra 15 phút – Hàm số" required>
+        <label class="field">Chọn câu hỏi</label>
+        <div id="bt-chon-cauhoi"></div>
+        <button class="btn full" type="submit">Giao bài</button>
+      </form>
+      <h2>Bài đã giao</h2>
+      <div id="ds-baitap"></div>
+      <div id="ket-qua"></div>
+    </section>
+  </div>
+
+  <script type="module" src="js/teacher.js"></script>
+</body>
+</html>
